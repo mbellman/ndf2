@@ -1,4 +1,6 @@
 import { PropsWithChildren } from 'react';
+import Thread from './forum-page/Thread';
+import { PostPreview } from './types';
 import './ForumPage.scss';
 
 const Frame = ({ children }: PropsWithChildren) => {
@@ -6,37 +8,6 @@ const Frame = ({ children }: PropsWithChildren) => {
     <div className="frame">
       <div className="frame--glass" />
       {children}
-    </div>
-  )
-};
-
-interface Thread {
-  title: string;
-  author: string;
-  replies: number;
-  date: Date;
-}
-
-interface ThreadProps {
-  thread: Thread;
-}
-
-const Thread = ({ thread }: ThreadProps) => {
-  return (
-    <div className="thread">
-      <div className="thread--icon-container">
-        <div className="thread--icon" />
-      </div>
-      <div className="thread--title-container">
-        <div className="thread--title">
-          {thread.title}
-        </div>
-      </div>
-      <div className="thread--meta-container">
-        <div className="thread--meta">
-          {thread.author} | {thread.replies} | {thread.date.toLocaleDateString()}
-        </div>
-      </div>
     </div>
   )
 };
@@ -52,11 +23,47 @@ const ForumHeader = () => {
 };
 
 const ForumBody = () => {
-  const threads: Thread[] = [
-    { title: 'Test thread', author: 'L9', replies: 9, date: new Date() },
-    { title: 'Test thread', author: 'BNet', replies: 8, date: new Date() },
-    { title: 'Test thread', author: 'Amir25atw', replies: 4, date: new Date() },
-    { title: 'Test thread', author: 'Punisher2', replies: 16, date: new Date() }
+  const threads: PostPreview[] = [
+    {
+      title: 'Test thread',
+      message: 'Let us see what this thread says',
+      author: {
+        name: 'L9',
+        points: 105245
+      },
+      replies: 9,
+      date: new Date()
+    },
+    {
+      title: 'Here is the topic of this thread',
+      message: 'Let us see what this thread says',
+      author: {
+        name: 'BNet',
+        points: 105245
+      },
+      replies: 9,
+      date: new Date()
+    },
+    {
+      title: 'What do you think this thread is about?',
+      message: 'Let us see what this thread says',
+      author: {
+        name: 'Amir25atw',
+        points: 105245
+      },
+      replies: 9,
+      date: new Date()
+    },
+    {
+      title: 'NDForums 2.0 is now officially in business',
+      message: 'Let us see what this thread says',
+      author: {
+        name: 'Punisher2',
+        points: 105245
+      },
+      replies: 9,
+      date: new Date()
+    }
   ]
 
   return (
