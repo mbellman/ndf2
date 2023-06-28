@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
-import Thread from './forum-page/Thread';
-import { PostPreview } from './types';
+import { Thread, ThreadListColumns } from './forum-page/thread-list';
+import { BasicThread } from './types';
 import './ForumPage.scss';
 
 const Frame = ({ children }: PropsWithChildren) => {
@@ -23,7 +23,7 @@ const ForumHeader = () => {
 };
 
 const ForumBody = () => {
-  const threads: PostPreview[] = [
+  const threads: BasicThread[] = [
     {
       title: 'Test thread',
       message: 'Let us see what this thread says',
@@ -32,6 +32,7 @@ const ForumBody = () => {
         points: 105245
       },
       replies: 9,
+      views: 17,
       date: new Date()
     },
     {
@@ -41,7 +42,8 @@ const ForumBody = () => {
         name: 'BNet',
         points: 105245
       },
-      replies: 9,
+      replies: 2,
+      views: 7,
       date: new Date()
     },
     {
@@ -52,6 +54,7 @@ const ForumBody = () => {
         points: 105245
       },
       replies: 9,
+      views: 130,
       date: new Date()
     },
     {
@@ -62,6 +65,7 @@ const ForumBody = () => {
         points: 105245
       },
       replies: 9,
+      views: 41,
       date: new Date()
     }
   ]
@@ -71,10 +75,11 @@ const ForumBody = () => {
       <Frame>
         <div className="forum-body--options">
           <button className="create-button">
-            +
+            New Thread
           </button>
         </div>
         <div className="forum-body--threads">
+          <ThreadListColumns />
           {threads.map(thread => (
             <Thread thread={thread} />
           ))}

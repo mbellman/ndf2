@@ -3,10 +3,11 @@ export interface Author {
   points: number;
 }
 
-export interface PostPreview {
+export interface BasicThread {
   title: string;
   message: string;
   author: Author;
   replies: number;
+  views: number;
   date: Date;
 }

@@ -14,7 +14,6 @@
   padding: 10px;
   margin: 0 0 5px;
   transition: all 0.2s;
-  height: 40px;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -25,20 +24,34 @@
     transform: translateX(5px);
   }
 
+  &--column {
+    display: flex;
+    background-color: rgba(0, 50, 200, 0.2);
+    align-items: center;
+    box-shadow: 0 0 1px 0 #fff;
+    border-radius: 3px;
+    height: 40px;
+    padding: 0 20px;
+    margin: 0 5px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
   &--icon {
     @include block-styles();
     width: 25px;
     height: 25px;
+    min-width: 25px;
+    margin-right: 5px;
   }
 
-  &--content {
-    &-container {
-      @include block-styles();
-      height: 40px;
-      width: 75%;
-      margin: 0 10px;
-      color: #fff;
-      padding: 0 20px;
+  &--detail {
+    color: #fff;
+
+    strong {
+      font-weight: 600;
     }
   }
 
@@ -49,10 +62,7 @@
   }
 
   &--meta {
-    @include block-styles();
     color: #fff;
-    height: 40px;
-    padding: 0 20px;
     justify-content: space-between;
 
     &-container {
@@ -62,5 +72,27 @@
 
   &:last-child {
     margin: 0;
+  }
+}
+
+.thread-list-columns {
+  background-color: rgba(0, 50, 200, 0.3);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: #fff;
+  display: flex;
+  padding: 10px;
+}
+
+.thread--heading {
+  margin: 0 5px;
+  padding: 0 30px 0 10px;
+  font-size: 12px;
+  font-weight: bold;
+  overflow: hidden;
+  cursor: default;
+
+  &:last-child {
+    margin-right: 0;
   }
 }
