@@ -8,8 +8,8 @@ interface ThreadPaginationProps {
 export const ThreadPagination = ({ position }: ThreadPaginationProps) => {
   return (
     <div className={`thread-pagination ${position}`}>
-      <button>« Previous</button>
-      <button>Next »</button>
+      <button>«</button>
+      <button>»</button>
     </div>
   )
 };
