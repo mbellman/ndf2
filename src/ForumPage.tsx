@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import { Thread, ThreadListColumns } from './forum-page/thread-list';
+import { Thread, ThreadListColumns, ThreadPagination } from './forum-page/thread-list';
 import { BasicThread } from './types';
 import './ForumPage.scss';
 
@@ -79,10 +79,14 @@ const ForumBody = () => {
           </button>
         </div>
         <div className="forum-body--threads">
-          <ThreadListColumns />
-          {threads.map(thread => (
-            <Thread thread={thread} />
-          ))}
+          <ThreadPagination position="top" />
+          <div className="forum-body--thread-list">
+            <ThreadListColumns />
+            {threads.map(thread => (
+              <Thread thread={thread} />
+            ))}
+          </div>
+          <ThreadPagination position="bottom" />
         </div>
       </Frame>
     </section>
