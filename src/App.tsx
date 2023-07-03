@@ -1,4 +1,4 @@
-import ForumPage from './ForumPage';
+import ForumPage from './pages/ForumPage';
 import './App.scss';
 
 const Background = () => <div className="background" />;

@@ -1,16 +1,9 @@
 import { PropsWithChildren } from 'react';
-import { Thread, ThreadListColumns, ThreadPagination } from './forum-page/thread-list';
-import { BasicThread } from './types';
+import { Thread, ThreadListColumns, ThreadPagination } from '../components/thread-list';
+import { BasicThread } from '../types';
+import Frame from '../components/Frame';
+import ForumBodyHeader from '../components/ForumBodyHeader';
 import './ForumPage.scss';
-
-const Frame = ({ children }: PropsWithChildren) => {
-  return (
-    <div className="frame">
-      <div className="frame--glass" />
-      {children}
-    </div>
-  )
-};
 
 const ForumHeader = () => {
   return (
@@ -73,11 +66,7 @@ const ForumBody = () => {
   return (
     <section className="forum-body">
       <Frame>
-        <div className="forum-body--options">
-          <button className="create-button">
-            New Thread
-          </button>
-        </div>
+        <ForumBodyHeader />
         <div className="forum-body--threads">
           <ThreadPagination position="top" />
           <div className="forum-body--thread-list">
